@@ -7,7 +7,8 @@ create table "employee"
     employee_id bigint not null primary key,
     first_nm    varchar(256),
     last_nm     varchar(256),
-    salary      integer
+    salary      integer,
+    passport    varchar(256)
 );
 
 create table if not exists "administrator"
