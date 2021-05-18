@@ -1,0 +1,10 @@
+drop table if exists "employee" cascade;
+drop table if exists "administrator" cascade;
+drop table if exists "hall" cascade;
+drop table if exists "cook" cascade;
+drop table if exists "dish" cascade;
+drop table if exists "dish_cook" cascade;
+drop table if exists "product" cascade;
+drop table if exists "product_dish" cascade;
+drop table if exists "customer" cascade;
+drop table if exists "customer_card" cascade;
