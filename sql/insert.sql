@@ -1,4 +1,4 @@
-insert into employee (id, first_nm, last_nm, salary)
+insert into employee (employee_id, first_nm, last_nm, salary)
 values (1, 'Булат', 'Шелхонов', 120000),
        (2, 'Николай', 'Кудрявцев', 148800),
        (3, 'Дерек', 'Шовин', 91100),
@@ -11,14 +11,14 @@ values (1, 'Булат', 'Шелхонов', 120000),
        (10, 'Канье', 'Уэст', 59000),
        (11, 'Ким', 'Кардашьян', 59000);
 
-insert into administrator (id, employee_id)
+insert into administrator (administrator_id, employee_id)
 values (1, 1),
        (2, 3),
        (3, 8),
        (4, 11),
        (5, 6);
 
-insert into hall (id, hall_nm, tables_cnt)
+insert into hall (hall_id, hall_nm, tables_cnt)
 values (1, 'VIP', 30),
        (2, 'Париж', 100),
        (3, 'Лондон', 70),
@@ -36,7 +36,7 @@ values (1, 1),
        (6, 3);
 
 
-insert into cook (id, employee_id)
+insert into cook (cook_id, employee_id)
 values (1, 2),
        (2, 5),
        (3, 4),
@@ -44,7 +44,7 @@ values (1, 2),
        (5, 7),
        (6, 9);
 
-insert into dish (id, dish_nm)
+insert into dish (dish_id, dish_nm)
 values (1, 'Борщ'),
        (2, 'Яичница'),
        (3, 'Чизкейк'),
@@ -69,7 +69,7 @@ values (1, 1),
        (6, 2),
        (6, 4);
 
-insert into product (id, product_nm, amount)
+insert into product (product_id, product_nm, amount)
 values (1, 'Свёкла', 100),
        (2, 'Сливочный сыр', 50),
        (3, 'Яйцо куриное', 200),
@@ -100,27 +100,27 @@ values (1, 1),
        (11, 8),
        (11, 2);
 
-insert into customer (id, first_nm, last_nm)
-values (1, 'Алексей', 'Овальный'),
-       (2, 'Евгений', 'Понасенков'),
-       (3, 'Александр', 'Халяпов'),
-       (4, 'Надежда', 'Меркурьева'),
-       (5, 'Илья', 'Мэддисон'),
-       (6, 'Барак', 'Обама'),
-       (7, 'Дмитрий', 'Гордон'),
-       (8, 'Тейлор', 'Свифт'),
-       (9, 'Пётр', 'Первый'),
-       (10, 'Наполеон', 'Бонапарт');
+insert into customer (customer_id, first_nm, last_nm, customer_since)
+values (1, 'Алексей', 'Овальный', TO_TIMESTAMP('5 12 2010 12', 'MM-DD-YYYY HH')),
+       (2, 'Евгений', 'Понасенков', TO_TIMESTAMP('4 4 2015 12', 'MM-DD-YYYY HH')),
+       (3, 'Александр', 'Халяпов', TO_TIMESTAMP('2 12 2017 12', 'MM-DD-YYYY HH')),
+       (4, 'Надежда', 'Меркурьева', TO_TIMESTAMP('3 10 2014 12', 'MM-DD-YYYY HH')),
+       (5, 'Илья', 'Мэддисон', TO_TIMESTAMP('5 6 2013 12', 'MM-DD-YYYY HH')),
+       (6, 'Барак', 'Обама', TO_TIMESTAMP('7 26 2019 12', 'MM-DD-YYYY HH')),
+       (7, 'Дмитрий', 'Гордон', TO_TIMESTAMP('9 17 2016 12', 'MM-DD-YYYY HH')),
+       (8, 'Тейлор', 'Свифт', TO_TIMESTAMP('11 1 2016 12', 'MM-DD-YYYY HH')),
+       (9, 'Пётр', 'Первый', TO_TIMESTAMP('1 14 2017 12', 'MM-DD-YYYY HH')),
+       (10, 'Наполеон', 'Бонапарт', TO_TIMESTAMP('2 2 2018 12', 'MM-DD-YYYY HH'));
 
-insert into customer_card(id, customer_id, dish_id)
-values (1, 1, 1),
-       (2, 2, 1),
-       (3, 3, 2),
-       (4, 4, 2),
-       (5, 5, 3),
-       (6, 6, 3),
-       (7, 7, 4),
-       (8, 8, 4),
-       (9, 9, 5),
-       (10, 10, 7);
+insert into customer_card(customer_card_id, customer_id, dish_id, bonuses)
+values (1, 1, 1, 2500),
+       (2, 2, 1, 1456),
+       (3, 3, 2, 3421),
+       (4, 4, 2, 12),
+       (5, 5, 3, 213),
+       (6, 6, 3, 422),
+       (7, 7, 4, 908),
+       (8, 8, 4, 532),
+       (9, 9, 5, 563),
+       (10, 10, 7, 2051);
 
