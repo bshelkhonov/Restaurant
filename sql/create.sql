@@ -4,11 +4,11 @@ set search_path to restaurant, public;
 
 create table "employee"
 (
-    employee_id integer not null primary key,
-    first_nm    varchar(256),
-    last_nm     varchar(256),
-    salary      integer,
-    passport    varchar(256)
+    employee_id    integer not null primary key,
+    first_nm       varchar(256),
+    last_nm        varchar(256),
+    salary_amt     integer,
+    passport_value varchar(256)
 );
 
 create table if not exists "administrator"
@@ -54,7 +54,7 @@ create table if not exists "product"
 (
     product_id serial primary key not null,
     product_nm varchar(256),
-    amount     integer
+    supply_amt integer
 );
 
 create table if not exists "product_x_dish"
@@ -66,17 +66,17 @@ create table if not exists "product_x_dish"
 
 create table if not exists "customer"
 (
-    customer_id    integer primary key not null,
-    first_nm       varchar(256),
-    last_nm        varchar(256),
-    customer_since timestamp           not null default now()
+    customer_id   integer primary key not null,
+    first_nm      varchar(256),
+    last_nm       varchar(256),
+    register_dttm timestamp           not null default now()
 );
 
 create table if not exists "card"
 (
-    card_id integer primary key not null,
-    dish_id integer references "dish" (dish_id),
-    bonuses integer             not null default 0
+    card_id     integer primary key not null,
+    dish_id     integer references "dish" (dish_id),
+    bonuses_amt integer             not null default 0
 );
 
 create table if not exists "customer_x_card"

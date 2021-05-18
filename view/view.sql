@@ -3,8 +3,8 @@ create view employee_view as
 select employee_id,
        first_nm,
        last_nm,
-       salary,
-       case when passport is not null then substr(passport, 0, 3) || '********' end as passport
+       salary_amt,
+       case when passport_value is not null then substr(passport_value, 0, 3) || '********' end as passport_value
 from employee;
 
 select *
@@ -60,8 +60,8 @@ from cook_x_dish;
 create view product_view as
 select product_id,
        product_nm,
-       amount,
-       case when amount = 0 then 'run out' when amount < 100 then 'running low' else 'enough' end as status
+       supply_amt,
+       case when supply_amt = 0 then 'run out' when supply_amt < 100 then 'running low' else 'enough' end as status
 from product;
 
 select *

@@ -1,4 +1,4 @@
-insert into employee (employee_id, first_nm, last_nm, salary, passport)
+insert into employee (employee_id, first_nm, last_nm, salary_amt, passport_value)
 values (1, 'Булат', 'Шелхонов', 120000, '4512-322122'),
        (2, 'Николай', 'Кудрявцев', 148800, '4322-411589'),
        (3, 'Дерек', 'Шовин', 91100, '4123-395285'),
@@ -69,7 +69,7 @@ values (1, 1),
        (6, 2),
        (6, 4);
 
-insert into product (product_id, product_nm, amount)
+insert into product (product_id, product_nm, supply_amt)
 values (1, 'Свёкла', 100),
        (2, 'Сливочный сыр', 50),
        (3, 'Яйцо куриное', 200),
@@ -100,7 +100,7 @@ values (1, 1),
        (11, 8),
        (11, 2);
 
-insert into customer (customer_id, first_nm, last_nm, customer_since)
+insert into customer (customer_id, first_nm, last_nm, register_dttm)
 values (1, 'Алексей', 'Овальный', TO_TIMESTAMP('5 12 2010 12', 'MM-DD-YYYY HH')),
        (2, 'Евгений', 'Понасенков', TO_TIMESTAMP('4 4 2015 12', 'MM-DD-YYYY HH')),
        (3, 'Александр', 'Халяпов', TO_TIMESTAMP('2 12 2017 12', 'MM-DD-YYYY HH')),
@@ -112,7 +112,7 @@ values (1, 'Алексей', 'Овальный', TO_TIMESTAMP('5 12 2010 12', 'M
        (9, 'Пётр', 'Первый', TO_TIMESTAMP('1 14 2017 12', 'MM-DD-YYYY HH')),
        (10, 'Наполеон', 'Бонапарт', TO_TIMESTAMP('2 2 2018 12', 'MM-DD-YYYY HH'));
 
-insert into card (card_id, dish_id, bonuses)
+insert into card (card_id, dish_id, bonuses_amt)
 values (1, 1, 2500),
        (2, 3, 1456),
        (3, 5, 3421),
