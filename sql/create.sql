@@ -19,7 +19,7 @@ create table if not exists "administrator"
 create table if not exists "hall"
 (
     id               serial primary key not null,
-    hall_nm          VARCHAR(256),
+    hall_nm          varchar(256),
     administrator_id bigint             not null references "administrator" (id)
 );
 
@@ -32,7 +32,7 @@ create table if not exists "cook"
 create table if not exists "dish"
 (
     id      serial primary key not null,
-    dish_nm VARCHAR(256)
+    dish_nm varchar(256)
 );
 
 create table if not exists "dish_cook"
@@ -45,7 +45,7 @@ create table if not exists "dish_cook"
 create table if not exists "product"
 (
     id         serial primary key not null,
-    product_nm VARCHAR(256),
+    product_nm varchar(256),
     amount     integer
 );
 
