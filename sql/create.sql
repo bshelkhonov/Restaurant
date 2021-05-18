@@ -4,10 +4,10 @@ set search_path to restaurant, public;
 
 create table "employee"
 (
-    id        bigint not null primary key,
-    first_nm  varchar(256),
-    second_nm varchar(256),
-    salary    integer
+    id       bigint not null primary key,
+    first_nm varchar(256),
+    last_nm  varchar(256),
+    salary   integer
 );
 
 create table if not exists "administrator"
@@ -18,9 +18,16 @@ create table if not exists "administrator"
 
 create table if not exists "hall"
 (
-    id               serial primary key not null,
-    hall_nm          varchar(256),
-    administrator_id bigint             not null references "administrator" (id)
+    id         serial primary key not null,
+    hall_nm    varchar(256),
+    tables_cnt integer
+);
+
+create table if not exists "hall_administrator"
+(
+    hall_id          bigint not null references "hall" (id),
+    administrator_id bigint not null references "administrator" (id),
+    constraint hall_administrator_key primary key (hall_id, administrator_id)
 );
 
 create table if not exists "cook"
@@ -35,7 +42,7 @@ create table if not exists "dish"
     dish_nm varchar(256)
 );
 
-create table if not exists "dish_cook"
+create table if not exists "cook_dish"
 (
     cook_id bigint references "cook" (id),
     dish_id bigint references "dish" (id),
