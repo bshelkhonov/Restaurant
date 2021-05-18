@@ -16,7 +16,7 @@ where extract(day from current_date - customer_since) < 1;
 
 
 insert into employee
-values (12, 'Лев', 'Толстой', 500000);
+values (12, 'Лев', 'Толстой', 500000, '4123424211');
 
 select *
 from employee

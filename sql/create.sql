@@ -24,11 +24,11 @@ create table if not exists "hall"
     tables_cnt integer
 );
 
-create table if not exists "hall_administrator"
+create table if not exists "hall_x_administrator"
 (
     hall_id          bigint not null references "hall" (hall_id),
     administrator_id bigint not null references "administrator" (administrator_id),
-    constraint hall_administrator_key primary key (hall_id, administrator_id)
+    constraint hall_administrator_id primary key (hall_id, administrator_id)
 );
 
 create table if not exists "cook"
@@ -43,11 +43,11 @@ create table if not exists "dish"
     dish_nm varchar(256)
 );
 
-create table if not exists "cook_dish"
+create table if not exists "cook_x_dish"
 (
     cook_id bigint references "cook" (cook_id),
     dish_id bigint references "dish" (dish_id),
-    constraint dish_cook_key primary key (cook_id, dish_id)
+    constraint dish_cook_id primary key (cook_id, dish_id)
 );
 
 create table if not exists "product"
@@ -57,11 +57,11 @@ create table if not exists "product"
     amount     integer
 );
 
-create table if not exists "product_dish"
+create table if not exists "product_x_dish"
 (
     product_id bigint references "product" (product_id),
     dish_id    bigint references "dish" (dish_id),
-    constraint product_dish_key primary key (product_id, dish_id)
+    constraint product_dish_id primary key (product_id, dish_id)
 );
 
 create table if not exists "customer"
@@ -72,10 +72,16 @@ create table if not exists "customer"
     customer_since timestamp          not null default now()
 );
 
-create table if not exists "customer_card"
+create table if not exists "card"
 (
-    customer_card_id bigint primary key not null,
-    customer_id      bigint             not null references "customer" (customer_id),
-    dish_id          bigint             not null references "dish" (dish_id),
-    bonuses          integer            not null default 0
+    card_id bigint primary key not null,
+    dish_id bigint             not null references "dish" (dish_id),
+    bonuses integer            not null default 0
+);
+
+create table if not exists "customer_x_card"
+(
+    customer_id bigint references customer (customer_id),
+    card_id     bigint not null references "card" (card_id),
+    constraint customer_x_card_id primary key (customer_id, card_id)
 );
